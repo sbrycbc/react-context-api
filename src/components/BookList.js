@@ -1,4 +1,5 @@
 import React from "react";
+import Book from './Book';
 
 class BookList extends React.Component {
 
@@ -12,7 +13,7 @@ class BookList extends React.Component {
         }
         )
 
-        return <div>BOOKLIST</div>
+        return <div>{bookList}</div>
     }
 
 }
