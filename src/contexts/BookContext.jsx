@@ -1,8 +1,12 @@
 import React from "react";
 
 
-export default  React.createContext(
-    [
+export const BookContext= React.createContext();
+
+class BookContextProvider extends React.Component{
+
+  state = {
+     books:  [
         {      
           title: "Kirmizi Pazartesi",
           author: "Gabriel Garcia Marquez",
@@ -45,11 +49,17 @@ export default  React.createContext(
           imageURL: "https://i.idefix.com/cache/600x600-0/originals/0001780787001-1.jpg",
           topic: "1968-1970 yillari arasinda geçen olaylar, o günün toplumsal gerçeklerini de satirlara taşiyor. Ama romanin odağinda bu toplumsal olaylar değil üçlü bir aşk var. Gençliğin rüzgâriyla hareketlenen İmkânsizin Şarkisini ölümle erken karşilaşan gençlerin hayati yönlendiriyor. Hiçbir şeyin önem taşimadiği, amaçsizliğin ağir bastiği, özgür seksin kol gezdiği bir öğrenci hayati... Ama diğer yanda da yoğun duygular var... İmkânsiz aşklar, imkânsiz şarkilar söyleten. Hemen hemen her Japon gencinin okuduğu roman anayurdu dişinda da çok kişi tarafindan sahipleniliyor."
         }
-
         ]
-);
+      }
+        render(){
+          return ( 
+            <BookContext.Provider value={this.state}>
+                  {this.props.children}
+            </BookContext.Provider>)
+        }
+      }
 
 
 
-
+export default BookContextProvider;
 
